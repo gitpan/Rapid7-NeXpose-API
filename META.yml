@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Rapid7-NeXpose-API
-version:            0.02
+version:            0.03
 abstract:           Communicate with NeXpose via XML NeXpose API v1.1
 author:
     - Vlatko Kosturjak <kost@linux.hr>

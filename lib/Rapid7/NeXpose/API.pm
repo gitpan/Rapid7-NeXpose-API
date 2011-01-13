@@ -13,11 +13,11 @@ Rapid7::NeXpose::API - Communicate with NeXpose via XML NeXpose API v1.1
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
@@ -211,7 +211,7 @@ sub http_api {
 	}
 }
 
-=head2 login 
+=head2 login ()
 
 login to NeXpose 
 =cut
@@ -231,6 +231,11 @@ sub login {
 	}
 }
 
+=head2 logout ()
+
+sends logout request, returns 1 on success, 0 on failure
+=cut
+
 sub logout {
 	my ( $self ) = @_;
 
@@ -248,9 +253,9 @@ sub logout {
 	}
 }
 
-=head2 sitelist 
+=head2 sitelist ()
 
-list sites 
+list sites, returns list of sites
 =cut
 sub sitelist {
 	my ( $self ) = @_;
@@ -266,9 +271,9 @@ sub sitelist {
 	}
 }
 
-=head2 sitescan 
+=head2 sitescan ( $siteid )
 
-site scan
+scan site specified by ID
 =cut
 sub sitescan {
 	my ( $self, $siteid ) = @_;
@@ -289,9 +294,9 @@ sub sitescan {
 	}
 }
 
-=head2 sitedelete 
+=head2 sitedelete ( $siteid ) 
 
-delete site
+delete site specified by ID
 =cut
 sub sitedelete {
 	my ( $self, $siteid ) = @_;
@@ -309,6 +314,7 @@ sub sitedelete {
 }
 
 =head2 DESTROY 
+
 destructor, calls logout method on destruction
 =cut
 sub DESTROY {
